@@ -12,17 +12,22 @@
     <!-- Bootstrap core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/styles.css" rel="stylesheet">
-  </head>
-  <script>
-    var cont = localStorage.getItem("contador");
-    function inciar(){
-      if (cont != 1){
-      localStorage.setItem("contador", 0);
-      window.location.href = "login.html";
+
+    <!--Crear variable en local storage, iniciar bucle, setear variable y redireccionar al LOGIN-->
+    <script>
+      var cont = localStorage.getItem("contador");
+      function inciar(){
+        if (cont != 1){
+        localStorage.setItem("contador", 0);
+        window.location.href = "login.html";
+        }
       }
-    }
-    inciar();
-  </script>
+      inciar();
+    </script>
+    
+  </head>
+
+
   <body>
     <nav class="site-header sticky-top py-1 bg-dark">
       <div class="container d-flex flex-column flex-md-row justify-content-between">
@@ -34,9 +39,23 @@
 
         <!-- AGREGO UN BOTON EN EL HEADER PARA CERRAR LA SESION -->
 
-        <button class="py-2 d-none d-md-inline-block" style="background-color: #343a40; color: white;" onclick="olvSesion()">Cerrar Sesion</button>
+        <div class="btn-group">
+          <button class="py-2 d-none d-md-inline-block dropdown-toggle" style="width: 180px; background-color: #343a40; color: white;"
+                  type="button" data-toggle="dropdown">
+            Botón <span class="caret"></span>
+          </button>
+        
+          <ul class="dropdown-menu">
+            <button class="py-2 d-none d-md-inline-block" style="width: 180px; background-color: #343a40; color: white;" onclick="olvSesion()">Cerrar Sesion</button>
+          </ul>
+        </div>
+
+        <!-- cierro boton -->
+
       </div>
     </nav>
+
+
     <main role="main">
       <section class="jumbotron text-center">
         <div class="m-5">

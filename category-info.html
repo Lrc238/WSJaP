@@ -23,7 +23,22 @@
       <a class="py-2 d-none d-md-inline-block" href="products.html">Productos</a>
       <a class="py-2 d-none d-md-inline-block" href="sell.html">Vender</a>
       <a class="py-2 d-none d-md-inline-block" href="cart.html">Mi carrito</a>
-      <button class="py-2 d-none d-md-inline-block" style="background-color: #343a40; color: white;" onclick="olvSesion()">Cerrar Sesion</button>
+
+        <!-- AGREGO UN BOTON EN EL HEADER PARA CERRAR LA SESION -->
+
+        <div class="btn-group">
+          <button class="py-2 d-none d-md-inline-block dropdown-toggle" style="width: 180px; background-color: #343a40; color: white;"
+                  type="button" data-toggle="dropdown">
+            Botón <span class="caret"></span>
+          </button>
+        
+          <ul class="dropdown-menu">
+            <button class="py-2 d-none d-md-inline-block" style="width: 180px; background-color: #343a40; color: white;" onclick="olvSesion()">Cerrar Sesion</button>
+          </ul>
+        </div>
+
+        <!-- cierro boton -->
+
     </div>
   </nav>
   <main role="main">
