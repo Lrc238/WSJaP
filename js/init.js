@@ -40,6 +40,12 @@ var getJSONData = function(url){
     });
 }
 
+var emailData = localStorage.getItem("eMail");
+      function botUser(){
+        document.getElementById("userName").textContent = emailData;
+      }
+      botUser();
+
 //Función que se ejecuta una vez que se haya lanzado el evento de
 //que el documento se encuentra cargado, es decir, se encuentran todos los
 //elementos HTML presentes.

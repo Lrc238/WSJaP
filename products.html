@@ -12,6 +12,7 @@
   <link href="css/font-awesome.min.css" rel="stylesheet">
   <link href="css/bootstrap.min.css" rel="stylesheet">
   <link href="css/styles.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" >
 </head>
 <body>
   
@@ -27,9 +28,9 @@
         <!-- AGREGO UN BOTON EN EL HEADER PARA CERRAR LA SESION -->
 
         <div class="btn-group">
-          <button class="py-2 d-none d-md-inline-block dropdown-toggle" style="width: 180px; background-color: #343a40; color: white;"
+          <button id="userName"  class="py-2 d-none d-md-inline-block dropdown-toggle" style="width: 180px; background-color: #343a40; color: white;"
                   type="button" data-toggle="dropdown">
-            Botón <span class="caret"></span>
+            <span class="caret"></span>
           </button>
         
           <ul class="dropdown-menu">
@@ -64,6 +65,12 @@
                 </label>
             </div>
         </div>
+
+          <!-- campo de busqueda -->
+
+        <div class="col-3 p-0">
+          <input type="search" name="" class="form-control" placeholder="Buscar..." id="barraBusqueda"/>
+        </div>
     </div>
 
     <!-- Campos para filtrar -->
@@ -89,7 +96,7 @@
             </div>
           </div>
         </div>
-    </div>
+      </div>
     
     
       <div class="row">

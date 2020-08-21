@@ -13,6 +13,9 @@
   <!-- Bootstrap core CSS -->
   <link href="css/bootstrap.min.css" rel="stylesheet">
   <link href="css/styles.css" rel="stylesheet">
+
+  
+  <meta name="google-signin-client_id" content="201408170007-d9vp37s1m37lifbda4pq8lq514pct879.apps.googleusercontent.com">
   
   <style>
     body{
@@ -22,7 +25,7 @@
         border-width: 310px;
         background-color: #f4f4f5;
         width: 400px;
-        height: 350px;
+        height: 400px;
         margin: 25px auto;
         justify-content: center;
         border-radius: 15px;
@@ -62,6 +65,15 @@
 </head>
 
 <body class="text-center">
+
+    <nav class="site-header sticky-top py-1 bg-dark">
+        <div class="container d-flex flex-column flex-md-row justify-content-between">
+         <h1 class="py-2 d-none d-md-inline-block" style="width: 180px; background-color: #343a40; color: white; margin: 0 auto;">BIENVENIDO!</h1>
+        </div>
+      </nav>
+
+
+
   <div class="box">
     <img class="imagenLogin" src="img/login.png" width="400px">
 <form method="GET" action="index.html" class="signin" onsubmit="compLogin()"><hr>
@@ -73,12 +85,26 @@
     <button class="btn" type="submit" >Iniciar Sesion</button>
 </form>
 </div>
+
+
+  <footer class="text-muted bg-light">
+    <div class="container">
+      <p>Este sitio forma parte de Desarrollo Web - JAP - 2020</p>
+      <p>Clickea <a target="_blank" href="Letra.pdf">aquí</a> para descargar la letra del obligatorio.</p>
+    </div>
+  </footer>
+
+
   <script src="js/init.js"></script>
   <script src="js/login.js"></script>
     <script>
     function compLogin(){
-    localStorage.setItem("contador", 1)
+        var saveMail = document.getElementById("inputEmail");
+        localStorage.setItem("eMail", saveMail.value);
+        localStorage.setItem("contador", 1)
     }
     </script>
+
+
 </body>
 </html>

@@ -6,6 +6,7 @@ var currentProductsArray = [];
 var currentSortCriteria = undefined;
 var minCount = undefined;
 var maxCount = undefined;
+var texto = undefined; // declaro una variable para el contenido del campo de busqueda
 
 function sortProducts(criteria, array){
     let result = [];
@@ -43,14 +44,22 @@ function sortProducts(criteria, array){
     return result;
 }
 
+// mostrar la lista de productos dentro del DIV, aplicar cambios segun filtros de busqueda, campos min/max o botones de orden
+
 function showProductsList(){
 
     let htmlContentToAppend = "";
+
     for(let i = 0; i < currentProductsArray.length; i++){
         let category = currentProductsArray[i];
+        let nombreProd = category.name.toLowerCase();        //toma el nombre del producto desde el Json y lo mete en una cariable en MINUSCULAS
+        let desProd = category.description.toLowerCase();    //toma la descripcion del producto desde el Json y lo mete en una cariable en MINUSCULAS
 
-        if (((minCount == undefined) || (minCount != undefined && parseInt(category.cost) >= minCount)) &&
-            ((maxCount == undefined) || (maxCount != undefined && parseInt(category.cost) <= maxCount))){
+        if (
+            ((minCount == undefined) || (minCount != undefined && parseInt(category.cost) >= minCount)) &&
+            ((maxCount == undefined) || (maxCount != undefined && parseInt(category.cost) <= maxCount)) &&
+            ( (desProd.indexOf(texto)) !== -1 || (nombreProd.indexOf(texto)) !== -1) //compara el contenido de los nombres y descripciones del Json letra por letra
+            ){
 
             htmlContentToAppend += `
             <a href="product-info.html" class="list-group-item list-group-item-action">
@@ -63,20 +72,16 @@ function showProductsList(){
                             <h4 class="mb-1">`+ category.name +`</h4>
                             <small class="text-muted">` + category.currency + ": " + category.cost + ` </small>
                         </div>
-
                         <div class="d-flex w-100 justify-content-between">
                             <h4 class="mb-1"></h4>
                             <small class="text-muted">` + category.soldCount + ` artículos vendidos</small>
                         </div>
-                        
-
                         <p class="mb-1">` + category.description + `</p>
                     </div>
                 </div>
             </a>
             `
         }
-
         document.getElementById("cat-list-container").innerHTML = htmlContentToAppend;
     }
 }
@@ -103,7 +108,19 @@ document.addEventListener("DOMContentLoaded", function(e){
     });
 
     document.getElementById("clearRangeFilter").addEventListener("click", function(){
+
         sortAndShowProducts(ORDER_ASC_BY_NAME);
+
+        document.getElementById("barraBusqueda").value = "";
+        document.getElementById("rangeFilterCountMin").value = "";
+        document.getElementById("rangeFilterCountMax").value = "";
+
+        texto = undefined;
+        minCount = undefined;
+        maxCount = undefined;
+
+        filtrar();
+        showProductsList();
     });
 
     document.getElementById("sortAsc").addEventListener("click", function(){
@@ -118,22 +135,14 @@ document.addEventListener("DOMContentLoaded", function(e){
         sortAndShowProducts(ORDER_BY_PROD_COUNT);
     });
 
-    document.getElementById("clearRangeFilter").addEventListener("click", function(){
-        document.getElementById("rangeFilterCountMin").value = "";
-        document.getElementById("rangeFilterCountMax").value = "";
-
-        minCount = undefined;
-        maxCount = undefined;
-
-        showProductsList();
-    });
-
     document.getElementById("rangeFilterCount").addEventListener("click", function(){
         
         //Obtener minimo y maximo
 
         minCount = document.getElementById("rangeFilterCountMin").value;
         maxCount = document.getElementById("rangeFilterCountMax").value;
+
+        //declarar variables para filtrar por minimo y maximo
 
         if ((minCount != undefined) && (minCount != "") && (parseInt(minCount)) >= 0){
             minCount = parseInt(minCount);
@@ -153,3 +162,12 @@ document.addEventListener("DOMContentLoaded", function(e){
     });
 });
 
+
+//funcion para obtener el valor del campo de busqueda, siempre en minuscula y ejecutar la busqueda al presionar cada tecla
+
+const filtrar= ()=>{
+    texto = barraBusqueda.value.toLowerCase();
+    showProductsList();
+}
+barraBusqueda.addEventListener('keyup', filtrar)
+filtrar();

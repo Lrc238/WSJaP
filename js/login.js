@@ -1,5 +1,6 @@
 function olvSesion(){
-    localStorage.setItem("contador",0); 
+    localStorage.setItem("contador",0);
+    localStorage.removeItem("eMail"); 
     window.location.href = "login.html";
 }
 
