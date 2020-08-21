@@ -42,23 +42,24 @@
       <a class="py-2 d-none d-md-inline-block" href="sell.html">Vender</a>
       <a class="py-2 d-none d-md-inline-block" href="cart.html">Mi carrito</a>
 
-        <!-- AGREGO UN BOTON EN EL HEADER PARA CERRAR LA SESION -->
+      <!-- AGREGO UN BOTON EN EL HEADER QUE VA A MOSTRAR EL NOMBRE DE USUARIO LOGUEADO -->
 
-        <div class="btn-group">
-          <button id="userName" class="py-2 d-none d-md-inline-block dropdown-toggle" style="width: 180px; background-color: #343a40; color: white;"
-                  type="button" data-toggle="dropdown">
-            <span class="caret"></span>
-          </button>
-        
-          <ul class="dropdown-menu">
-            <button   class="py-2 d-none d-md-inline-block" style="width: 180px; background-color: #343a40; color: white;" onclick="olvSesion()">Cerrar Sesion</button>
-          </ul>
-        </div>
+      <div class="btn-group">
+        <button id="userName"  class="py-2 d-none d-md-inline-block dropdown-toggle" style="width: 180px; background-color: #343a40; color: white;"
+                type="button" data-toggle="dropdown">
+          <span class="caret"></span>
+        </button>
 
-        <!-- cierro boton -->
+      <!-- agrego un menu desplegable para el boton de cerrar sesion -->
 
-    </div>
-  </nav>
+        <ul class="dropdown-menu">
+          <button class="py-2 d-none d-md-inline-block" style="width: 180px; background-color: #343a40; color: white;" onclick="olvSesion()">Cerrar Sesion</button>
+        </ul>
+      </div>
+  </div>
+</nav>
+
+
   <div class="container p-5">
     <div class="alert alert-danger" role="alert" style="position: relative; width:auto; top: 0;">
       <h4 class="alert-heading">¡A trabajar! :)</h4>

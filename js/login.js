@@ -1,6 +1,6 @@
 function olvSesion(){
-    localStorage.setItem("contador",0);
-    localStorage.removeItem("eMail"); 
+    localStorage.setItem("contLogin",0); // regresa el valor del KEY contador a 0 para que nos sea imposible navegar por el sitio sin volver a loguearnos
+    localStorage.removeItem("eMail");  // elimina el KEY eMail del local storage
     window.location.href = "login.html";
 }
 

@@ -14,9 +14,13 @@
   <link href="css/bootstrap.min.css" rel="stylesheet">
   <link href="css/styles.css" rel="stylesheet">
 
-  
+  <!-- este es un intento fallido de añadir el boton de inicio de sesion de google, sigue aca porque lo voy a volver a intentar en el futuro -->
   <meta name="google-signin-client_id" content="201408170007-d9vp37s1m37lifbda4pq8lq514pct879.apps.googleusercontent.com">
   
+
+  
+<!-- los estilos utilizados los elegí tratando de darle un aspecto que respete la paleta de colores del sitio prediseñado por JaP pero con mi toque personal-->
+
   <style>
     body{
         background-color: #ffffff;
@@ -61,7 +65,6 @@
         margin: 5px;
     }
 </style>
-
 </head>
 
 <body class="text-center">
@@ -98,10 +101,11 @@
   <script src="js/init.js"></script>
   <script src="js/login.js"></script>
     <script>
-    function compLogin(){
+    function compLogin(){ // funcion que toma el valor EMAIL para mostrarlo cuando el usuario está logueado en un boton de la seccion NAV
+                          // y pone el contador en 1 para poder navegar por el sitio si estamos logueados
         var saveMail = document.getElementById("inputEmail");
         localStorage.setItem("eMail", saveMail.value);
-        localStorage.setItem("contador", 1)
+        localStorage.setItem("contLogin", 1)
     }
     </script>
 

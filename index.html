@@ -15,10 +15,10 @@
 
     <!--Crear variable en local storage, iniciar bucle, setear variable y redireccionar al LOGIN-->
     <script>
-      var cont = localStorage.getItem("contador");
+      var cont = localStorage.getItem("contLogin");
       function inciar(){
         if (cont != 1){
-        localStorage.setItem("contador", 0);
+        localStorage.setItem("contLogin", 0);
         window.location.href = "login.html";
         }
       }
@@ -38,23 +38,22 @@
         <a class="py-2 d-none d-md-inline-block" href="sell.html">Vender</a>
         <a class="py-2 d-none d-md-inline-block" href="cart.html">Mi carrito</a>
 
-        <!-- AGREGO UN BOTON EN EL HEADER PARA CERRAR LA SESION -->
+        <!-- AGREGO UN BOTON EN EL HEADER QUE VA A MOSTRAR EL NOMBRE DE USUARIO LOGUEADO -->
 
         <div class="btn-group">
-          <button id="userName" class="py-2 d-none d-md-inline-block dropdown-toggle" style="width: 180px; background-color: #343a40; color: white;"
+          <button id="userName"  class="py-2 d-none d-md-inline-block dropdown-toggle" style="width: 180px; background-color: #343a40; color: white;"
                   type="button" data-toggle="dropdown">
             <span class="caret"></span>
           </button>
-        
+
+        <!-- agrego un menu desplegable para el boton de cerrar sesion -->
+
           <ul class="dropdown-menu">
             <button class="py-2 d-none d-md-inline-block" style="width: 180px; background-color: #343a40; color: white;" onclick="olvSesion()">Cerrar Sesion</button>
           </ul>
         </div>
-
-        <!-- cierro boton -->
-
-      </div>
-    </nav>
+    </div>
+  </nav>
 
 
     <main role="main">
