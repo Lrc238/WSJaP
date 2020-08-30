@@ -15,17 +15,7 @@
 
     <!--Crear variable en local storage, iniciar bucle, setear variable y redireccionar al LOGIN-->
     <script>
-      var cont = localStorage.getItem("contLogin");
-      function inciar(){
-        if (cont != 1){
-        localStorage.setItem("contLogin", 0);
-        window.location.href = "login.html";
-        }
-      }
-      inciar();
-
       </script>
-    
   </head>
 
 
@@ -41,16 +31,16 @@
         <!-- AGREGO UN BOTON EN EL HEADER QUE VA A MOSTRAR EL NOMBRE DE USUARIO LOGUEADO -->
 
         <div class="btn-group">
-          <button id="userName"  class="py-2 d-none d-md-inline-block dropdown-toggle" style="width: 180px; background-color: #343a40; color: white;"
+            <button id="userName"  class="py-2 d-none d-md-inline-block dropdown-toggle" style="width: 180px; background-color: #343a40; color: white;"
                   type="button" data-toggle="dropdown">
-            <span class="caret"></span>
-          </button>
+              <span class="caret"></span>
+            </button>
 
         <!-- agrego un menu desplegable para el boton de cerrar sesion -->
 
-          <ul class="dropdown-menu">
-            <button class="py-2 d-none d-md-inline-block" style="width: 180px; background-color: #343a40; color: white;" onclick="olvSesion()">Cerrar Sesion</button>
-          </ul>
+            <ul class="dropdown-menu">
+              <button class="py-2 d-none d-md-inline-block" style="width: 180px; background-color: #343a40; color: white;" onclick="olvSesion()">Cerrar Sesion</button>
+            </ul>
         </div>
     </div>
   </nav>
@@ -138,10 +128,6 @@
     <script src="js/jquery-3.4.1.min.js"></script>
     <script src="js/bootstrap.bundle.min.js"></script>
     <script src="js/init.js"></script>
-    <!-- este script reinicia el valor del localStorage para cerrar la sesion al presionar un boton en el header y refresca la pagina-->
-    <script src="js/login.js"></script>
-    <script>
-      
-    </script>
+    <script>inciar();</script> 
   </body>
 </html>

@@ -40,6 +40,34 @@ var getJSONData = function(url){
     });
 }
 
+var cont = localStorage.getItem("contLogin");
+function inciar(){
+  if (cont != 1){
+  localStorage.setItem("contLogin", 0);
+  window.location.href = "login.html";
+  }
+}
+
+
+// llamada desde un boton en el NAV en todos los HTML
+function olvSesion(){
+  localStorage.setItem("contLogin",0); // regresa el valor del KEY contador a 0 para que nos sea imposible navegar por el sitio sin volver a loguearnos
+  localStorage.removeItem("eMail");  // elimina el KEY eMail del local storage
+  window.location.href = "login.html";
+}
+
+
+
+function compLogin(){ // funcion que toma el valor EMAIL para mostrarlo cuando el usuario está logueado en un boton de la seccion NAV
+  // y pone el contador en 1 para poder navegar por el sitio si estamos logueados
+var saveMail = document.getElementById("inputEmail");
+localStorage.setItem("eMail", saveMail.value);
+localStorage.setItem("contLogin", 1)
+}
+
+
+//agregar nombre de usuario al boton de menu
+
 var emailData = localStorage.getItem("eMail");
       function botUser(){
         document.getElementById("userName").textContent = emailData;
