@@ -7,7 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
   <title>eMercado - Todo lo que busques está aquí</title>
-
+  
   <link rel="canonical" href="https://getbootstrap.com/docs/4.3/examples/album/">
   <link href="https://fonts.googleapis.com/css?family=Raleway:300,300i,400,400i,700,700i,900,900i" rel="stylesheet">
   <link href="css/font-awesome.min.css" rel="stylesheet">
@@ -23,37 +23,221 @@
       <a class="py-2 d-none d-md-inline-block" href="products.html">Productos</a>
       <a class="py-2 d-none d-md-inline-block" href="sell.html">Vender</a>
       <a class="py-2 d-none d-md-inline-block" href="cart.html">Mi carrito</a>
-
+      
       <!-- AGREGO UN BOTON EN EL HEADER QUE VA A MOSTRAR EL NOMBRE DE USUARIO LOGUEADO -->
-
+      
       <div class="btn-group">
         <button id="userName"  class="py-2 d-none d-md-inline-block dropdown-toggle" style="width: 180px; background-color: #343a40; color: white;"
-                type="button" data-toggle="dropdown">
-          <span class="caret"></span>
-        </button>
-
+        type="button" data-toggle="dropdown">
+        <span class="caret"></span>
+      </button>
+      
       <!-- agrego un menu desplegable para el boton de cerrar sesion -->
-
-        <ul class="dropdown-menu">
-          <button class="py-2 d-none d-md-inline-block" style="width: 180px; background-color: #343a40; color: white;" onclick="olvSesion()">Cerrar Sesion</button>
-        </ul>
-      </div>
+      
+      <ul class="dropdown-menu">
+        <button class="py-2 d-none d-md-inline-block" style="width: 180px; background-color: #343a40; color: white;" onclick="olvSesion()">Cerrar Sesion</button>
+      </ul>
+    </div>
   </div>
 </nav>
 
-  <div class="container p-5">
-    <div class="alert alert-danger" role="alert" style="position: relative; width:auto; top: 0;">
-      <h4 class="alert-heading">¡A trabajar! :)</h4>
-      <p>Esta sección corresponde a: Entrega 3 (Fecha de entrega: 13/09/2020) y Entrega 4 (Fecha de entrega: 20/09/2020).</p>
-      <hr>
-      <p class="mb-0">Para saber qué debes hacer, fijate en la actividad en CREA correspondiente a esta entrega.</p>
+
+<main role="main" class="pb-5">
+  <div class="container p-1">
+      <div class="text-center p-4">
+      <h2>Descripción del producto</h2>
+      <p class="lead">Encontraras aquí toda la información del producto.</p>
+      <p class="small alert-warning py-3"><strong>Nota: </strong>por simplicidad, cualquiera sea el producto
+        seleccionado previamente, siempre se visualizará el presente: <strong>Chevrolet Onix Joy</strong>.</p>
+      </div>
+      
+    <!--empiezo el contenedor para la pauta 1-->
+      <div class="row">
+        <div class="col-6">
+            <div class="col-12">
+              <h1 id="productName">Xxxxx</h1>
+            </div><hr>
+              <div class="row">
+                <div class="col-2">
+                  <p><strong>Precio: </strong></p>
+                </div>
+                <div class="col-6">
+                  <p id="precioProd">xxxx</p>
+                </div>
+              </div><hr>
+            <div class="row">
+              <div class="col-12">
+                <p><strong>Descripcion:</strong></p>
+                <p id="prodDesc">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Porro, eligendi ab eveniet laborum officiis repudiandae! Optio error non nostrum, harum consequuntur quos maxime ratione, perferendis, impedit sunt commodi rerum quam!</p>
+              </div>
+            </div><hr>
+            <div class="row">
+              <div class="col-2">
+                <p><strong>Categoría:</strong></p>
+              </div>
+              <div class="col-2">
+                <p  id="prodCat">xxxx</p>
+              </div>
+              <div class="col-4">
+                <p><strong>Cantidad Vendida:</strong></p>
+              </div>
+              <div id="cantVend" class="col-3">
+                <p>xxxx</p>
+              </div>
+            </div>
+        </div>
+        <!--slideshow-->
+        <div class="col-6 ">
+          <div class="col-4"></div>
+          <div class="col-12 ">
+            <h2>Imagenes Ilustrativas</h2>
+          </div>
+          <div class="col-12">
+            <div id="carouselExampleControls" style="border: 2px solid black;" class="carousel slide carousel-fade rounded" data-ride="carousel">
+              <div id="carrImg" class="carousel-inner">
+                <div class="carousel-item active">
+                  <img src="img/car1.jpg" class="d-block w-100" alt="img/car1.jpg">
+                </div>
+              </div>
+              <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+              </a>
+              <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+              </a>
+            </div>
+          </div>
+        </div>
+        <!--slideshow-->  
+      </div><hr>
+
+      <div class="row">
+        <div class="col-12">
+          <h2>Productos Relacionados:</h2>
+        </div>
+        <div class="row ml-2 " id="tarjetas">
+          
+        </div>
+      </div>
+    <!--termino el contenedor para la pauta 1-->
+    
+
+    <!--empiezo el contenedor para la pauta 2-->
+      <div class="row">
+      <div class="col-12 pt-4">
+        <div class="col-12">
+          <h2>Comentarios</h2>
+        </div><hr>
+      
+
+          <div id="estaticComents" class="media-body">
+
+            <div style="background-color: lightgrey;" class="col-8 border rounded border-dark mb-2">
+              <div class="row justify-content-between ml-0 mr-2 mt-2">
+                <div class="col-6">
+                  <label><strong>juansito </strong>
+                  <span class="mute"> - 2020-02-25 12:48 -</span></label>
+                </div>
+                <div class="col-3 justify-content-end">
+                  <div id="puntuacion" class="row justify-content-end">
+                    
+                  </div>
+                </div>
+              </div>
+                <hr class="mx-2 my-0">
+              <div class="mx-2 mt-2">
+              <label class="small">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptatibus magni quidem ad placeat error pariatur quaerat itaque eum optio, corporis reprehenderit impedit modi, consequuntur vel ea vero autem esse voluptates.</label>
+              </div>
+            </div>
+
+            <div style="background-color: lightgrey;" class="col-8 border rounded border-dark mb-2">
+              <div class="row justify-content-between ml-0 mr-2 mt-2">
+                <div class="col-6">
+                  <label><strong>juansito </strong>
+                  <span class="mute"> - 2020-02-25 12:48 -</span></label>
+                </div>
+                <div class="col-3 justify-content-end">
+                  <div class="row justify-content-end">
+                      <div>
+                        <img style="width: 18px;" src="img/star-solid-or.png" alt="">
+                      </div>
+                      <div>
+                        <img style="width: 18px;" src="img/star-solid-or.png" alt="">
+                      </div>
+                      <div>
+                        <img style="width: 18px;" src="img/star-solid-or.png" alt="">
+                      </div>
+                      <div>
+                        <img style="width: 18px;" src="img/star-solid-or.png" alt="">
+                      </div>
+                      <div>
+                        <img style="width: 18px;" src="img/star-solid.png" alt="">
+                      </div>
+                  </div>
+                </div>
+              </div>
+                <hr class="mx-2 my-0">
+              <div class="mx-2 mt-2">
+              <label class="small">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptatibus magni quidem ad placeat error pariatur quaerat itaque eum optio, corporis reprehenderit impedit modi, consequuntur vel ea vero autem esse voluptates.</label>
+              </div>
+            </div>
+            <hr/>
+          </div>
+          <div id="newComents" class="media-body"></div>
+      </div>
+      </div>
+    <!--termino el contenedor para la pauta 2-->
+
+    <!-- Empiezo el contenedor para la pauta grupal -->
+    <div class="row">
+      <div class="col-12 pt-4">
+        <div class="col-12">
+          <h2>Dejá tu comentario</h2>
+        </div><hr>
+        <div class="col-8 rounded" style="background-color: lightgrey;">
+
+            <div class="row"><div class="col-12 my-2"><textarea id="comntText" name="" rows="4" cols="60" class="form-control" required></textarea></div></div>
+            
+              <div class="row">
+
+                <div class="col-1 pr-0 mr-0">
+                  <h4>Calificación:</h4>
+                </div>
+                
+                <div class="col-4 px-0 mx-1">
+                  <div class="star-rating">
+                    <input type="radio" name="rate" id="rate-5" value="5" required>
+                    <label for="rate-5" class="fas fa-star"></label>
+                    <input type="radio" name="rate" id="rate-4" value="4">
+                    <label for="rate-4" class="fas fa-star"></label>
+                    <input type="radio" name="rate" id="rate-3" value="3">
+                    <label for="rate-3" class="fas fa-star"></label>
+                    <input type="radio" name="rate" id="rate-2" value="2">
+                    <label for="rate-2" class="fas fa-star"></label>
+                    <input type="radio" name="rate" id="rate-1" value="1">
+                    <label for="rate-1" class="fas fa-star"></label>
+                  </div>
+                </div>
+                <div class="col-5"></div>
+                <div class="col-1">
+                  <button id="submiting" class="btn btn-secondary btn-sm">Enviar</button>
+                </div>
+              </div>
+
+          
+        </div>
+      </div>
     </div>
+    <!-- Termino el contenedor para la pauta grupal -->
+
+
   </div>
-  <footer class="text-muted">
+  </main>
+  
+  <footer class="text-muted bg-light">
     <div class="container">
-      <p class="float-right">
-        <a href="#">Volver arriba</a>
-      </p>
       <p>Este sitio forma parte de Desarrollo Web - JAP - 2020</p>
       <p>Clickea <a target="_blank" href="Letra.pdf">aquí</a> para descargar la letra del obligatorio.</p>
     </div>
