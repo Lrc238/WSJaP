@@ -176,6 +176,9 @@ document.getElementById("submiting").addEventListener("click", function(){
     ` 
     if (newText !== ""){
     document.getElementById("newComents").innerHTML = addCom;
+
+    document.getElementById("comntText").value = " ";
+    document.getElementByName("rate").value = 1;
     }
 });
 
