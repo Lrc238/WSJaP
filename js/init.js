@@ -55,6 +55,13 @@ function olvSesion(){
   localStorage.removeItem("eMail");  // elimina el KEY eMail del local storage
   window.location.href = "login.html";
 }
+function redMyProfile(){
+  window.location.href = "my-profile.html"
+}
+
+function redCart(){
+  window.location.href = "cart.html"
+}
 
 
 
