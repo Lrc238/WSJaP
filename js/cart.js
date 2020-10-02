@@ -54,6 +54,7 @@ function mostrarArtículos(array){
 }
 
 
+
 function changeSubtotal(n,array){
     let cartInfo = array
     var var1 = document.getElementById("inpId_"+n)
