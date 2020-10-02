@@ -60,14 +60,140 @@
   </nav>
 
 
-  <div class="container p-5">
-    <div class="alert alert-danger" role="alert" style="position: relative; width:auto; top: 0;">
-      <h4 class="alert-heading">¡A trabajar! :)</h4>
-      <p>Esta sección corresponde a: Entrega 5 (Fecha de entrega: 11/10/2020) y Entrega 6 (Fecha de entrega: 25/10/2020).</p>
-      <hr>
-      <p class="mb-0">Para saber qué debes hacer, fijate en la actividad en CREA correspondiente a esta entrega.</p>
+  <main role="main" class="pb-5">
+    <div class="text-center p-4">
+        <h2>Carrito de compras</h2>
     </div>
+    <div class="container">
+      <div class="row" >
+        <h2>Articulos a comprar</p>
+      </div>
+
+        <hr class="mt-0">
+
+      <div class="row " >
+        <div class="col-2"></div>
+        <div class="col-3 my-auto border rounded-left border-dark"><p><strong>Nombre</strong></p></div>
+        <div class="col-2 my-auto border border-left-0 border-dark"><p><strong>Costo</strong></p></div>
+        <div class="col-2 my-auto border border-left-0 border-dark"><p><strong>Cantidad</strong></p></div>
+        <div class="col-3 my-auto border border-left-0 rounded-right border-dark"><p><strong>Subtotal</strong></p></div>
+      </div>
+
+      <hr class="m-0">
+      <div id="itemRow"></div><hr>
+
+
+      <form action="">
+        <div class="row border border-dark rounded">
+          <div class="col-3 " >
+            <div class="col-12 pb-0 mt-2">
+              <h4>Tipo de envío</h4>
+            </div>
+            <div class="d-block my-3">
+              <div class="custom-control custom-radio">
+                <input id="premiumradio" name="publicationType" type="radio" class="" checked="" required="">
+                <label style="color: #000;" class="" for="premiumradio">Premium 2 a 5 días (15%)</label>
+              </div><br>
+              
+              <div class="custom-control custom-radio">
+                <input id="expressradio" name="publicationType" type="radio" class="" required="">
+                <label style="color: #000;" class="" for="expressradio">Express 5 a 8 días (7%)</label>
+              </div><br>
+            
+              <div class="custom-control custom-radio">
+                <input id="standardradio" name="publicationType" type="radio" class="" required="">
+                <label style="color: #000;" class="" for="standardradio">Standard 12 a 15 días (5%)</label>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-9 border-left border-dark">
+            <div class="row">
+            <div class="col-12 mt-2">
+              <h4>Drirección de envío</h4>
+            </div>
+              <div class="col-8"><label for="Calle">Calle</label></div>
+              <div class="col-4"><label for="Numero">Número</label></div>
+              <div class="col-8"><input class="form-control" id="Calle" type="text" required></div>
+              <div class="col-4 mb-2"><input class="form-control" id="Numero" type="text" required></div>
+            <div  class="col-12"><label for="esquin">Esquina</label></div>
+            <div  class="col-12 mb-3"><input class="form-control" id="esquin" type="text" required></div>
+            </div>
+          </div>
+        </div><hr>
+
+        <div class="row border border-dark rounded">
+          <div class="col-12 pb-0 mt-2">
+            <h4>Costos</h4>
+          </div>
+          <div class="col-12 border-top  border-dark">
+
+            <div class="row border-bottom pt-3">
+              <div class="col-8">
+                <p>Subtotal</p>
+                <p>Costo unitario del producto por cantidad.</p>
+              </div>
+              <div class="col-2">
+              </div>
+              <div class="col-2">
+                <div class="row"><p></p></div>
+                <div class="row pt-1"><p>UYU ej:200</p></div>
+                <div class="row"><p></p></div>
+              </div>
+            </div>
+
+            <div class="row pt-3">
+              <div class="col-8">
+                <p>Costo de envío</p>
+                <p>Según el tipo de envío</p>
+              </div>
+              <div class="col-2">
+              </div>
+              <div class="col-2">
+                <div class="row"><p></p></div>
+                <div class="row pt-1"><p>UYU ej:30</p></div>
+                <div class="row"><p></p></div>
+              </div>
+            </div>
+
+            <div class="row border-top pt-3">
+              <div class="col-8">
+                <h4>Total($)</h4>
+              </div>
+              <div class="col-2">
+              </div>
+              <div class="col-2">
+                <div class="row"><p>UYU <strong>ej:230</strong></p></div>
+              </div>
+            </div>
+
+          </div>
+        </div><hr>
+
+        <div class="row border border-dark rounded">
+          <div class="col-12 pt-2">
+            <h4>Forma de pago</h4>
+            <p>No seleccionada <button type="button" class="btn btn-link">Seleccionar</button></p>
+            
+          </div>
+        </div><br>
+
+        <input class="btn-info form-control" type="submit" value="Finalizar Compra">
+      </form>
   </div>
+</div>
+
+
+
+  </main>
+
+
+
+
+
+
+
+
   <div id="spinner-wrapper">
     <div class="lds-ring">
       <div></div>
