@@ -62,12 +62,16 @@
 
   <main role="main" class="pb-5">
     <div class="text-center p-4">
+      <h4 style="background-color: red;">ESTA ES LA PROPUESTA SIN EL APARTADO DESAFIANTE, PARA VER EL DESAFIANTE, <a href="cartdesaf.html">CLICK AQUÍ</a></h4>
+  </div>
+    <div class="text-center p-4">
         <h2>Carrito de compras</h2>
     </div>
     <div class="container">
       <div class="row" >
         <h2>Articulos a comprar</p>
       </div>
+
 
         <hr class="mt-0">
 
@@ -83,25 +87,25 @@
       <div id="itemRow"></div><hr>
 
 
-      <form action="">
+      <form action="" onsubmit="finCompra()">
         <div class="row border border-dark rounded">
-          <div class="col-3 " >
+          <div id="prueba" class="col-3 " >
             <div class="col-12 pb-0 mt-2">
               <h4>Tipo de envío</h4>
             </div>
             <div class="d-block my-3">
               <div class="custom-control custom-radio">
-                <input id="premiumradio" name="publicationType" type="radio" class="" checked="" required="">
+                <input id="premiumradio" name="publicationType" type="radio" class="" checked="" required="" value="0.15">
                 <label style="color: #000;" class="" for="premiumradio">Premium 2 a 5 días (15%)</label>
               </div><br>
               
               <div class="custom-control custom-radio">
-                <input id="expressradio" name="publicationType" type="radio" class="" required="">
+                <input id="expressradio" name="publicationType" type="radio" class="" required="" value="0.07">
                 <label style="color: #000;" class="" for="expressradio">Express 5 a 8 días (7%)</label>
               </div><br>
             
               <div class="custom-control custom-radio">
-                <input id="standardradio" name="publicationType" type="radio" class="" required="">
+                <input id="standardradio" name="publicationType" type="radio" class="" required="" value="0.05">
                 <label style="color: #000;" class="" for="standardradio">Standard 12 a 15 días (5%)</label>
               </div>
             </div>
@@ -131,13 +135,13 @@
             <div class="row border-bottom pt-3">
               <div class="col-8">
                 <p>Subtotal</p>
-                <p>Costo unitario del producto por cantidad.</p>
+                <p>Costo de tus productos en UYU.</p>
               </div>
               <div class="col-2">
               </div>
               <div class="col-2">
                 <div class="row"><p></p></div>
-                <div class="row pt-1"><p>UYU ej:200</p></div>
+                <div class="row pt-1"><p id="subT">UYU ej:200</p></div>
                 <div class="row"><p></p></div>
               </div>
             </div>
@@ -151,7 +155,7 @@
               </div>
               <div class="col-2">
                 <div class="row"><p></p></div>
-                <div class="row pt-1"><p>UYU ej:30</p></div>
+                <div class="row pt-1"><p id="costEnv">UYU ej:30</p></div>
                 <div class="row"><p></p></div>
               </div>
             </div>
@@ -163,32 +167,23 @@
               <div class="col-2">
               </div>
               <div class="col-2">
-                <div class="row"><p>UYU <strong>ej:230</strong></p></div>
+                <div class="row"><p>UYU <strong id="totalEnv">ej:230</strong></p></div>
               </div>
             </div>
 
           </div>
         </div><hr>
-
         <div class="row border border-dark rounded">
           <div class="col-12 pt-2">
             <h4>Forma de pago</h4>
             <p>No seleccionada <button type="button" class="btn btn-link">Seleccionar</button></p>
-            
           </div>
         </div><br>
-
-        <input class="btn-info form-control" type="submit" value="Finalizar Compra">
+        <input class="btn-info form-control" type="submit" value="Finalizar Compra" onclick="">
       </form>
-      
   </div>
-
-
 </div>
-
-
-
-  </main>
+</main>
 
 
 

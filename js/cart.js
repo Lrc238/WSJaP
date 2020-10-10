@@ -3,7 +3,12 @@ var appendArt = []
 // id contardor articulos itemCount
 var inpId = ""
 var counter = []
-
+var arts = 0
+var subTotal = 0
+var subTotaldolar = 0
+var subTotalpesos = 0
+var subT = 0
+var costEnvxTipo = 0
 
 function mostrarArtículos(array){
     let cartInfo = array;
@@ -13,11 +18,10 @@ function mostrarArtículos(array){
     
         for (let i = 0; i < cartItems.length; i++){
 
+            arts += 1
             // counter.push(i)
-
             var inpId = "inpId_" + i;
             var pId = "pId_" + i;
-
             // console.log(counter)
 
             appendArt +=`
@@ -31,7 +35,7 @@ function mostrarArtículos(array){
                             <div class="col-6 my-auto"></div>
                         </div>
                     </div>
-                <div class="col-2 border-left border-dark my-auto"><input name="inputNum" class="form-control" type="number" value="1" id="${inpId}"></div>
+                <div class="col-2 border-left border-dark my-auto"><input name="inputNum" class="form-control ipert ${i}" type="number" value="1" id="${inpId}"></div>
                 <div class="col-3 border-left border-dark my-auto">
                     <div class="row"> 
                         <div class="col-1"><strong><p>${cartInfo.articles[i].currency}</p></strong></div>
@@ -41,6 +45,17 @@ function mostrarArtículos(array){
                 </div> 
             </div>
             `
+
+            if (cartInfo.articles[i].currency === "USD"){
+                subTotal += cartInfo.articles[i].unitCost*40
+                subTotaldolar += cartInfo.articles[i].unitCost*40
+
+            } else{
+                subTotal += cartInfo.articles[i].unitCost
+                subTotalpesos += cartInfo.articles[i].unitCost
+            }
+
+
             
         }
         document.getElementById("itemRow").innerHTML = appendArt;
@@ -49,16 +64,64 @@ function mostrarArtículos(array){
         var var1 = document.getElementById("inpId_"+f)
         // console.log(var1.value)
         document.getElementById("pId_"+f).innerHTML = cartInfo.articles[f].unitCost * var1.value;
-        
         }
+
+        document.getElementById("subT").innerHTML = "UYU "+ subTotal;
+        costoEnvio();
+
+        let subT = subTotaldolar + subTotalpesos
+        document.getElementById("subT").innerHTML = "UYU "+ subT;
+ 
+        totalEnv()
+}
+
+function changeSubtotalXprod(n,array){
+    let cartInfo = array
+    var var1 = document.getElementById("inpId_"+n);
+    var subTotalxprod = cartInfo.articles[n].unitCost * var1.value
+    document.getElementById("pId_"+n).innerHTML = subTotalxprod;
+}
+
+function costoEnvio(){
+    var seleccion = document.getElementsByName('publicationType');
+    for(i=0; i<seleccion.length; i++){
+        if(seleccion[i].checked){
+        var seleccion=seleccion[i].value;
+        }
+        var costEnvxTipo = subTotaldolar + subTotalpesos*seleccion
+        document.getElementById("costEnv").innerHTML = "UYU "+ costEnvxTipo.toFixed(0);
+        
+    }
 }
 
 
-
-function changeSubtotal(n,array){
+function changeSubT(n,array){
     let cartInfo = array
-    var var1 = document.getElementById("inpId_"+n)
-    document.getElementById("pId_"+n).innerHTML = cartInfo.articles[n].unitCost * var1.value;
+    let var2 = document.getElementById("inpId_"+n);
+
+    if (cartInfo.articles[n].currency === "USD"){
+        subTotaldolar += cartInfo.articles[n].unitCost*40*var2.value
+        
+    } else{
+        subTotalpesos = cartInfo.articles[n].unitCost*var2.value
+    }
+    
+    var subT = subTotaldolar + subTotalpesos
+    document.getElementById("subT").innerHTML = "UYU "+ subT;
+}
+
+function totalEnv(){
+    let b = Number(document.getElementById("subT").textContent.replace('UYU ',''));
+    let a = Number(document.getElementById("costEnv").textContent.replace('UYU ',''));
+    let tot = a+b
+    document.getElementById("totalEnv").innerHTML = tot
+}
+
+function finCompra(){
+    let calle = document.getElementById('Calle').value
+    let numero = document.getElementById('Numero').value
+    let esquina = document.getElementById('esquin').value
+    alert("Compra realizada con exito! envíaremos tus productos a "+calle+" "+numero +", esq. "+ esquina);
 }
 
 
@@ -68,25 +131,31 @@ document.addEventListener("DOMContentLoaded", function(e){
                 cartProducts = resultObj.data;
                 // console.log(cartProducts.articles[0].name)
                 mostrarArtículos(cartProducts)
-            }
-            
-            
-
-            document.getElementById("inpId_0").addEventListener("change", function(){
-                for (let n = 0; n<cartProducts.articles.length; n++){
-                    changeSubtotal(n,cartProducts);
-                    }
-            });
-
-            document.getElementById("inpId_1").addEventListener("change", function(){
-                for (let n = 0; n<cartProducts.articles.length; n++){
-                    changeSubtotal(n,cartProducts);
-                    }
-            });
-
                 
-          
-        
-        
+                costoEnvio()
+            }
+
+            // document.addEventListener("click", function(){
+            //     let q = Number(document.getElementById("pId_0").textContent.replace('UYU ',''));
+            //     let w = Number(document.getElementById("pId_1").textContent.replace('UYU ',''));
+            //     let e = q+w
+            //     console.log(q+w)
+            // });
+
+            document.addEventListener("change", function(){
+                 for (let n = 0; n<cartProducts.articles.length; n++){
+                     changeSubtotalXprod(n,cartProducts);
+                     changeSubT(n,cartProducts)
+                     }
+                     costoEnvio();
+                     totalEnv();
+             });
+
+
     });
 });
+
+
+                // crear un campo/etiqueta que va a tener el indice del array 
+                // tener asociada cada fila a una clase
+                // enlazar la clase al evento click para traer el valor del primer campo

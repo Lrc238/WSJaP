@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<!-- saved from url=(0049)https://getbootstrap.com/docs/4.3/examples/album/ -->
+<html lang="en">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <title>eMercado - Todo lo que busques está aquí</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <link rel="canonical" href="https://getbootstrap.com/docs/4.3/examples/album/">
+  <link href="https://fonts.googleapis.com/css?family=Raleway:300,300i,400,400i,700,700i,900,900i" rel="stylesheet">
+
+  <style>
+    .bd-placeholder-img {
+      font-size: 1.125rem;
+      text-anchor: middle;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+    }
+
+    @media (min-width: 768px) {
+      .bd-placeholder-img-lg {
+        font-size: 3.5rem;
+      }
+    }
+  </style>
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <link href="css/styles.css" rel="stylesheet">
+  <link href="css/dropzone.css" rel="stylesheet">
+</head>
+
+<body>
+  <nav class="site-header sticky-top py-1 bg-dark">
+    <div class="container d-flex flex-column flex-md-row justify-content-between">
+        <a class="py-2 d-none d-md-inline-block" href="index.html">Inicio</a>
+        <a class="py-2 d-none d-md-inline-block" href="categories.html">Categorías</a>
+        <a class="py-2 d-none d-md-inline-block" href="products.html">Productos</a>
+        <a class="py-2 d-none d-md-inline-block" href="sell.html">Vender</a>
+        
+        <!-- AGREGO UN BOTON EN EL HEADER QUE VA A MOSTRAR EL NOMBRE DE USUARIO LOGUEADO -->
+        
+      <div class="btn-group">
+          <button id="userName"  class="py-2 d-none d-md-inline-block dropdown-toggle" style="width: 180px; background-color: #343a40; color: white;"
+          type="button" data-toggle="dropdown">
+          <span class="caret"></span></button>
+        
+        <!-- agrego un menu desplegable para el boton de cerrar sesion, Carrito y mi perfil -->
+        
+        <ul class="dropdown-menu">
+          <button class="py-2 d-none d-md-inline-block" style="width: 180px; background-color: #343a40; color: white;" onclick="redCart()">Mi carrito</button>
+          <button class="py-2 d-none d-md-inline-block" style="width: 180px; background-color: #343a40; color: white;" onclick="redMyProfile()">Mi Perfil</button>
+          <button class="py-2 d-none d-md-inline-block" style="width: 180px; background-color: #343a40; color: white;" onclick="olvSesion()">Cerrar Sesion</button>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+
+  <main role="main" class="pb-5">
+      <div class="text-center p-4">
+        <h4 style="background-color: red;">ESTA ES LA PROPUESTA CON EL APARTADO DESAFIANTE, PARA VER EL OBLIGATORIO SIN DESAFIANTE, <a href="cart.html">CLICK AQUÍ</a></h4>
+    </div>
+    <div class="text-center p-4">
+        <h2>Carrito de compras</h2>
+    </div>
+    <div class="container">
+      <div class="row" >
+        <h2>Articulos a comprar</p>
+      </div>
+
+
+        <hr class="mt-0">
+
+      <div class="row " >
+        <div class="col-2"></div>
+        <div class="col-3 my-auto border rounded-left border-dark"><p><strong>Nombre</strong></p></div>
+        <div class="col-2 my-auto border border-left-0 border-dark"><p><strong>Costo</strong></p></div>
+        <div class="col-2 my-auto border border-left-0 border-dark"><p><strong>Cantidad</strong></p></div>
+        <div class="col-3 my-auto border border-left-0 rounded-right border-dark"><p><strong>Subtotal</strong></p></div>
+      </div>
+
+      <hr class="m-0">
+      <div id="itemRow"></div><hr>
+
+      
+
+      <form action="" onsubmit="finCompra()">
+        <div class="row border border-dark rounded">
+          <div id="prueba" class="col-3 " >
+            <div class="col-12 pb-0 mt-2">
+              <h4>Tipo de envío</h4>
+            </div>
+            <div class="d-block my-3">
+              <div class="custom-control custom-radio">
+                <input id="premiumradio" name="publicationType" type="radio" class="" checked="" required="" value="0.15">
+                <label style="color: #000;" class="" for="premiumradio">Premium 2 a 5 días (15%)</label>
+              </div><br>
+              
+              <div class="custom-control custom-radio">
+                <input id="expressradio" name="publicationType" type="radio" class="" required="" value="0.07">
+                <label style="color: #000;" class="" for="expressradio">Express 5 a 8 días (7%)</label>
+              </div><br>
+              <div class="custom-control custom-radio">
+                <input id="standardradio" name="publicationType" type="radio" class="" required="" value="0.05">
+                <label style="color: #000;" class="" for="standardradio">Standard 12 a 15 días (5%)</label>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-9 border-left border-dark">
+            <div class="row">
+            <div class="col-12 mt-2">
+              <h4>Drirección de envío</h4>
+            </div>
+              <div class="col-8"><label for="Calle">Calle</label></div>
+              <div class="col-4"><label for="Numero">Número</label></div>
+              <div class="col-8"><input class="form-control" id="Calle" type="text" required></div>
+              <div class="col-4 mb-2"><input class="form-control" id="Numero" type="text" required></div>
+            <div  class="col-12"><label for="esquin">Esquina</label></div>
+            <div  class="col-12 mb-3"><input class="form-control" id="esquin" type="text" required></div>
+            </div>
+          </div>
+        </div><hr>
+
+        <div class="row border border-dark rounded">
+          <div class="col-12 pb-0 mt-2">
+            <h4>Costos</h4>
+          </div>
+          <div class="col-12 border-top  border-dark">
+
+            <div class="row border-bottom pt-3">
+              <div class="col-8">
+                <p>Subtotal</p>
+                <p>Costo de tus productos en UYU.</p>
+              </div>
+              <div class="col-2">
+              </div>
+              <div class="col-2">
+                <div class="row"><p></p></div>
+                <div class="row pt-1"><p id="subT">UYU ej:200</p></div>
+                <div class="row"><p></p></div>
+              </div>
+            </div>
+
+            <div class="row pt-3">
+              <div class="col-8">
+                <p>Costo de envío</p>
+                <p>Según el tipo de envío</p>
+              </div>
+              <div class="col-2">
+              </div>
+              <div class="col-2">
+                <div class="row"><p></p></div>
+                <div class="row pt-1"><p id="costEnv">UYU ej:30</p></div>
+                <div class="row"><p></p></div>
+              </div>
+            </div>
+
+            <div class="row border-top pt-3">
+              <div class="col-8">
+                <h4>Total($)</h4>
+              </div>
+              <div class="col-2">
+              </div>
+              <div class="col-2">
+                <div class="row"><p>UYU <strong id="totalEnv">ej:230</strong></p></div>
+              </div>
+            </div>
+
+          </div>
+        </div><hr>
+        <div class="row border border-dark rounded">
+          <div class="col-12 pt-2">
+            <h4>Forma de pago</h4>
+            <p>No seleccionada <button type="button" class="btn btn-link">Seleccionar</button></p>
+          </div>
+        </div><br>
+        <input class="btn-info form-control" type="submit" value="Finalizar Compra" onclick="">
+      </form>
+  </div>
+</div>
+</main>
+
+
+
+
+
+
+
+
+  <div id="spinner-wrapper">
+    <div class="lds-ring">
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+  </div>
+  <script src="js/jquery-3.4.1.min.js"></script>
+  <script src="js/bootstrap.bundle.min.js"></script>
+  <script src="js/dropzone.js"></script>
+  <script src="js/init.js"></script>
+  <script src="js/cartdesaf.js"></script>
+  <script>inciar();</script> 
+</body>
+
+</html>
