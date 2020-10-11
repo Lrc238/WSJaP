@@ -35,7 +35,7 @@ function mostrarArtículos(array){
                             <div class="col-6 my-auto"></div>
                         </div>
                     </div>
-                <div class="col-2 border-left border-dark my-auto"><input name="inputNum" class="form-control ipert ${i}" type="number" value="1" id="${inpId}"></div>
+                <div class="col-2 border-left border-dark my-auto"><input name="inputNum" min="0" class="form-control ipert ${i}" type="number" value="1" id="${inpId}"></div>
                 <div class="col-3 border-left border-dark my-auto">
                     <div class="row"> 
                         <div class="col-1"><strong><p>${cartInfo.articles[i].currency}</p></strong></div>
