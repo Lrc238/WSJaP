@@ -1,0 +1,32 @@
+{
+    "articles": [
+        {
+            "name": "Pino de olor para el auto",
+            "count": 2,
+            "unitCost": 100,
+            "currency": "UYU",
+            "src": "img/tree1.jpg"
+        },
+		{
+            "name": "Suzuki Celerio",
+            "count": 1,
+            "unitCost": 12500,
+            "currency": "USD",
+            "src": "img/prod3.jpg"
+        },
+        		{
+            "name": "Banana",
+            "count": 10,
+            "unitCost": 24,
+            "currency": "UYU",
+            "src": "img/banana.jpg"
+        },
+        {
+            "name": "Sansung Galaxy S9+",
+            "count": 4,
+            "unitCost": 1300,
+            "currency": "USD",
+            "src": "img/sgs9.jpg"
+        }
+    ]
+}
