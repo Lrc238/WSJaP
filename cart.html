@@ -8,7 +8,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
   <title>eMercado - Todo lo que busques está aquí</title>
-
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <link rel="canonical" href="https://getbootstrap.com/docs/4.3/examples/album/">
   <link href="https://fonts.googleapis.com/css?family=Raleway:300,300i,400,400i,700,700i,900,900i" rel="stylesheet">
 
@@ -59,17 +59,13 @@
     </div>
   </nav>
 
-
   <main role="main" class="pb-5">
-    <div class="text-center p-4">
-      <h4 style="background-color: red;">ESTA ES LA PROPUESTA SIN EL APARTADO DESAFIANTE, PARA VER EL DESAFIANTE, <a href="cartdesaf.html">CLICK AQUÍ</a></h4>
-  </div>
     <div class="text-center p-4">
         <h2>Carrito de compras</h2>
     </div>
     <div class="container">
       <div class="row" >
-        <h2>Articulos a comprar</p>
+        <h2>Articulos:</p>
       </div>
 
 
@@ -86,6 +82,7 @@
       <hr class="m-0">
       <div id="itemRow"></div><hr>
 
+      
 
       <form action="" onsubmit="finCompra()">
         <div class="row border border-dark rounded">
@@ -103,7 +100,6 @@
                 <input id="expressradio" name="publicationType" type="radio" class="" required="" value="0.07">
                 <label style="color: #000;" class="" for="expressradio">Express 5 a 8 días (7%)</label>
               </div><br>
-            
               <div class="custom-control custom-radio">
                 <input id="standardradio" name="publicationType" type="radio" class="" required="" value="0.05">
                 <label style="color: #000;" class="" for="standardradio">Standard 12 a 15 días (5%)</label>
@@ -114,7 +110,7 @@
           <div class="col-9 border-left border-dark">
             <div class="row">
             <div class="col-12 mt-2">
-              <h4>Drirección de envío</h4>
+              <h4>Dirección de envío</h4>
             </div>
               <div class="col-8"><label for="Calle">Calle</label></div>
               <div class="col-4"><label for="Numero">Número</label></div>
@@ -176,13 +172,59 @@
         <div class="row border border-dark rounded">
           <div class="col-12 pt-2">
             <h4>Forma de pago</h4>
-            <p>No seleccionada <button type="button" class="btn btn-link">Seleccionar</button></p>
+            <div class="row">
+              <div class="col-4"><p id="forPagoSeleccionada">No seleccionada </p></div>
+              <div class="col-8"><button type="button" class="btn btn-link" data-toggle="modal" data-target="#exampleModal">Seleccionar</button></div>
+            </div>
+            
           </div>
         </div><br>
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <button type="button" class="close m-2" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Selecciona la forma de pago:</h5>
+              </div>
+              <div class="modal-body">
+                <div class="container m-0 p-0">
+                  <div class="row m-0 p-0">
+                    <div class="col-5 m-1 mx-2">
+                      <input style="display:none" type="radio" name="fPago" id="efectivo" value="Efectivo" required>
+                      <label style="width: 200px; height: 200px;" class="btn btn-danger" for="efectivo"><p style="margin-top: 45%;">Efectivo</p></label>
+                    </div>
+                    <div class="col-5 m-1 mx-2">
+                      <input style="display:none" type="radio" name="fPago" id="debito" value="Débito">
+                      <label style="width: 200px; height: 200px;" class="btn btn-danger" for="debito"><p style="margin-top: 45%;">Débito</p></label>
+                    </div>
+                    <div class="col-5 m-1 mx-2">
+                      <input style="display:none" type="radio" name="fPago" id="credito" value="Crédito">
+                      <label style="width: 200px; height: 200px;" class="btn btn-danger" for="credito"><p style="margin-top: 45%;">Crédito</p></label>
+                    </div>
+                    <div class="col-5 m-1 mx-2">
+                      <input style="display:none" type="radio" name="fPago" id="dBanco" value="Depósito Bancario">
+                      <label style="width: 200px; height: 200px;" class="btn btn-danger" for="dBanco"><p style="margin-top: 45%;">Depósito Bancario</p></label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Confirmar</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Modal -->
         <input class="btn-info form-control" type="submit" value="Finalizar Compra" onclick="">
+        
       </form>
+      
   </div>
 </div>
+<div id="itemAux"></div>
 </main>
 
 
