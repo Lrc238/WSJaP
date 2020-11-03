@@ -59,15 +59,96 @@
     </div>
   </nav>
 
-  <div class="container p-5">
-    <div class="alert alert-danger" role="alert" style="position: relative; width:auto; top: 0;">
-      <h4 class="alert-heading">¡A trabajar! :)</h4>
-      <p>Esta sección corresponde a: Entrega 7 (Fecha de entrega: 8/11/202020) -> Punto 1 y 2.</p>
-      <hr>
-      <p class="mb-0">Para saber qué debes hacer, fijate en la actividad en CREA correspondiente a esta entrega.</p>
+
+
+
+
+  <div class="container">
+    <div class="text-center p-4">
+      <h2>Mi Perfil</h2>
+    </div>
+    
+        <div style="height: 170px;"  class="row clearfix justify-content-center m-2">
+          <div class="col-2 mr-1">
+            <div class="border border-dark rounded" style="width: 170px; height: 170px; background-color: red;"></div>
+          </div>  
+          <div  class="col-6 ml-2 border border-dark border-right-0 rounded-left" >
+            <div class="row pt-2"> 
+              <div class="col-2 pt-2 mr-1">Nombre:</div>
+              <div style="background-color: white;"  class="col-7 border rounded m-1 pt-1"><strong id="usName"></strong></div>
+              <div class="col-2 pt-2 mr-1"></div>
+              <div class="col-2 pt-2 mr-1">Apellido:</div>
+              <div style="background-color: white;" class="col-7 border rounded m-1 pt-1"><strong id="usSurname"></strong> </div>
+              <div class="col-2 pt-2 mr-1"></div>
+              <div class="col-2 pt-2 mr-1">Mail:</div>
+              <div style="background-color: white;" class="col-7 border rounded m-1 pt-1"><strong id="usEmail"></strong> </div>
+              <div class="col-2 pt-2 mr-1"></div>
+              <div class="col-2 pt-2 mr-1">Telefono:</div>
+              <div style="background-color: white;" class="col-7 border rounded m-1 pt-1"><strong id="usPhone"></strong> </div>
+            </div>
+          </div>
+          <div class="col-1 border border-left-0 border-dark rounded-right">
+            <button style="width: 65px; margin-top: 15px; margin-right: 10px;" type="button" class="btn-light form-control border rounded" data-toggle="modal" data-target="#exampleModal"><img src="img/pencil.svg" alt=""></button>
+          </div>
+        </div>
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <button type="button" class="close m-2" data-dismiss="modal" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Actualiza tus Datos:</h5>
+      </div>
+      <div class="modal-body">
+        <div class="container m-0 p-0">
+            <div class="row justify-content-md-center">
+              <div class="col-md-8 order-md-1">
+                <form action="" onsubmit="">
+                <div class="row">
+                  <div class="col-12 mb-3">
+                    <label for="productName">Nombre</label>
+                    <input type="text" class="form-control" id="userNames" placeholder="Ingresa tu nombre" autocomplete="off" required>
+                  </div>
+                  <div class="col-12 mb-3">
+                    <label for="userSurname">Apellidos</label>
+                    <input type="text" class="form-control" id="userSurname" placeholder="Ingresa tu apellido" autocomplete="off" required>
+                  </div>
+                  <div class="col-12 mb-3">
+                    <label for="userMail">Email</label>
+                    <input type="text" class="form-control" id="userMail" placeholder="Ingresa tu email" autocomplete="off" disabled>
+                  </div>
+                  <div class="col-12 mb-3">
+                    <label for="userPhone">Telefono</label>
+                    <input type="text" class="form-control" id="userPhone"  onkeypress="return isNumberKey(event)" autocomplete="off" placeholder="ej: 09X XXX XXX" minlength="9" maxlength="9" required>
+                  </div>
+                  <div class="col-12">
+                    <hr>
+                      <button class="btn-info form-control" type="submit" onclick="saveUser()">Guardar Cambios</button>
+                  </div>
+                </div>
+              </form>
+              </div>  
+          </div>
+        </div>
+      </div>
     </div>
   </div>
-  <footer class="text-muted bg-light">
+</div>
+<!-- Modal -->
+
+
+
+  </div>
+
+
+
+
+
+
+
+  <footer class="text-muted bg-light fixed-bottom">
     <div class="container">
       <p>Este sitio forma parte de Desarrollo Web - JAP - 2020</p>
       <p>Clickea <a target="_blank" href="Letra.pdf">aquí</a> para descargar la letra del obligatorio.</p>
