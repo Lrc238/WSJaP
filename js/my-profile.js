@@ -1,26 +1,29 @@
-var userData = { mail: '', name: '', surname: '', age: '', phone: '', img: ''}
+var userData = { mail: '', name: '', surname: '', age: '', phone: ''}
 
 
 //Función que se ejecuta una vez que se haya lanzado el evento de
 //que el documento se encuentra cargado, es decir, se encuentran todos los
 //elementos HTML presentes.
 document.addEventListener("DOMContentLoaded", function (e) {
-    mostUserMail();
-    obtenerDatos();
-    camImgPerf();
-
-
-        
+    
+    if (localStorage.getItem("img") === null) {
+        localStorage.setItem("img", '')
+    }
+    
     document.querySelector('#userPic').addEventListener('change', function(){
         const reader = new FileReader();
-
+        
         reader.addEventListener("load", ()=> {
             localStorage.setItem("img", reader.result)
         })
-
+        
         reader.readAsDataURL(this.files[0]);
+        
     });
-
+    
+    mostUserMail();
+    obtenerDatos();
+    camImgPerf();
 });
 
 function mostUserMail(){
@@ -35,14 +38,6 @@ function saveUser(){
     let getAge = document.getElementById('userAge');
     let getPhone = document.getElementById('userPhone');
     let userMail = localStorage.getItem("eMail");
-
-    // let userData = 
-    // {
-    //     mail: userMail,
-    //     name: getName.value,
-    //     surname: getSurname.value,
-    //     phone: getPhone.value
-    // }
     
     localStorage.setItem('profiles',
         JSON.stringify(
@@ -55,10 +50,14 @@ function saveUser(){
             }
         )
     )
+    camImgPerf();
 }
 
 function camImgPerf(){
     let imgPerf = localStorage.getItem('img');
+    if(!imgPerf){
+        localStorage.setItem('img', "")
+    }
 
     console.log(imgPerf)
 
